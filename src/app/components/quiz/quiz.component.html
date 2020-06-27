@@ -1,0 +1,28 @@
+<div *ngIf="index!=10 && quiz">
+    <h4>{{quiz[index].question|decode}}</h4>
+    <p #one (click)="scoreCounter(one)">{{answears[index][0]|decode}}</p>
+    <p #two (click)="scoreCounter(two)">{{answears[index][1]|decode}}</p>
+    <p #three (click)="scoreCounter(three)"> {{answears[index][2]|decode}}</p>
+    <p #four (click)="scoreCounter(four)">{{answears[index][3]|decode}}</p>
+</div>
+
+<div *ngIf="quiz && quiz.length===index">
+   <h3>
+       Your Score 
+   </h3>
+
+   <span>{{score}}</span>
+   <br>
+   <button class="learn-more" routerLink="/home"> Go Home</button>
+</div>
+
+<div *ngIf="!quiz">
+    <svg class="loader" viewBox="0 0 24 24">
+        <circle class="loader__value" cx="12" cy="12" r="10" />
+        <circle class="loader__value" cx="12" cy="12" r="10" />
+        <circle class="loader__value" cx="12" cy="12" r="10" />
+        <circle class="loader__value" cx="12" cy="12" r="10" />
+        <circle class="loader__value" cx="12" cy="12" r="10" />
+        <circle class="loader__value" cx="12" cy="12" r="10" />
+      </svg>
+</div>
